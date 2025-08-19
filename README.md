@@ -62,3 +62,15 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Program Detail
+Pembuatan menggunakan Laravel versi 8 dan php diatas versi 8
+- Terdapat App toko kopi online tanpa login sebagai Konsumen
+- terdapat App kasir sebagai admin untuk konfirmasi penjualan dan pembelian secara langsung ke kasir
+## Detail Install
+menggunakan cmd atau git bash dengan mengarahkan pada direktori program yang sudah di download dan di ekstrak
+- Download aplikasi
+- kemudian composer install atau composer update
+- buat file baru di directori program dengan nama file .env copy paste dari .env.example
+- setting masukan nama databasenya di .env
+- terakhir php artisan key:generate
