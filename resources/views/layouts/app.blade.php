@@ -28,8 +28,8 @@
       </button>
       <div class="navbar-collapse collapse" id="navbars">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a href="{{ route('shop.menu') }}" class="nav-link">Menu</a></li>
-          <li class="nav-item"><a href="{{ route('shop.cart') }}" class="nav-link">Keranjang</a></li>
+          <!-- <li class="nav-item"><a href="{{ route('shop.menu') }}" class="nav-link">Menu</a></li>
+          <li class="nav-item"><a href="{{ route('shop.cart') }}" class="nav-link">Keranjang</a></li> -->
           @auth
           <li class="nav-item"><a href="{{ route('dashboard') }}" class="nav-link">Dashboard</a></li>
           <li class="nav-item"><a href="{{ route('categories.index') }}" class="nav-link">Kategori</a></li>

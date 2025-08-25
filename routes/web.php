@@ -18,16 +18,28 @@ use App\Http\Controllers\{
 
 // Route::get('/', function(){ return redirect()->route('dashboard'); });
 
-Route::get('/', [ShopController::class,'menu'])->name('shop.menu');
+Route::get('/', [ShopController::class,'index'])->name('shop.index');
+
+Route::get('/menu', [ShopController::class,'menu'])->name('shop.menu');
+Route::get('/menu2', [ShopController::class,'menu2'])->name('shop.menu2');
+Route::get('/menu/categories', [ShopController::class,'categories'])->name('shop.categories');
 
 // Shop (public)
 Route::get('/cart', [ShopController::class,'cart'])->name('shop.cart');
+Route::get('/cart2', [ShopController::class,'cart2'])->name('shop.cart2');
 Route::post('/cart/add', [ShopController::class,'addToCart'])->name('shop.add');
 Route::post('/cart/update', [ShopController::class,'updateCart'])->name('shop.update');
 Route::post('/cart/remove', [ShopController::class,'removeFromCart'])->name('shop.remove');
 Route::get('/checkout', [ShopController::class,'checkout'])->name('shop.checkout');
+Route::get('/checkout2', [ShopController::class,'checkout2'])->name('shop.checkout2');
 Route::post('/checkout', [ShopController::class,'processCheckout'])->name('shop.process');
 Route::get('/success', [ShopController::class,'success'])->name('shop.success');
+Route::get('/success2', [ShopController::class,'success2'])->name('shop.success2');
+
+Route::get('/about', [ShopController::class,'about'])->name('shop.about');
+Route::get('/services', [ShopController::class,'services'])->name('shop.services');
+/*Route::view('/about', 'shop.about')->name('about');
+Route::view('/services', 'shop.services')->name('services');*/
 
 Auth::routes();
 
@@ -48,6 +60,7 @@ Route::middleware(['auth'])->group(function(){
         Route::post('/products/edit',[ProductController::class,'edit'])->name('products.edit');
         Route::post('/products/update',[ProductController::class,'update'])->name('products.update');
         Route::post('/products/delete',[ProductController::class,'destroy'])->name('products.delete');
+        Route::post('/products/upload',[ProductController::class,'upload'])->name('products.upload');
 
         // Customers
         Route::get('/customers',[CustomerController::class,'index'])->name('customers.index');

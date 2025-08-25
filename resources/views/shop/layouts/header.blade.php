@@ -58,10 +58,10 @@
         </button>
         <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right" aria-labelledby="navbar-default_dropdown_1">
 
-          <a href="{{ route('shop.menu') }}" class="nav-link">Menu</a>
-          <a href="{{ route('shop.cart') }}" class="nav-link">Keranjang</a>
+          <a href="{{ route('shop.menu') }}" class="nav-link"><span style="color: #8898aa;" class="fa fa-list"></span> Menu</a>
+          <a href="{{ route('shop.cart') }}" class="nav-link"><span style="color: #8898aa;" class="fa fa-shopping-cart"></span> Keranjang</a>
           <hr>
-          <a href="{{ route('login') }}" class="nav-link">Login Staff</a>
+          <a href="{{ route('login') }}" class="nav-link"> <span style="color: #8898aa;" class="fa fa-key"></span> Login Staff</a>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
           </form>
