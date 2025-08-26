@@ -6955,6 +6955,14 @@ button.bg-dark:focus {
   background-color: #172b4d !important;
 }
 
+.bg-coklat {
+  background-color: #7C4700 !important;
+}
+
+.bg-coklat2 {
+  background-color: #2B1700 !important;
+}
+
 a.bg-default:hover,
 a.bg-default:focus,
 button.bg-default:hover,

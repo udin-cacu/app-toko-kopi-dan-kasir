@@ -20,7 +20,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>
-        App - Manajemen
+        App - Coffee ColorFull
     </title>
     <!-- Favicon -->
     <link href="{{ asset ('content/assets/img/brand/favicon.png') }}" rel="icon" type="image/png">
@@ -41,7 +41,7 @@
                 <a class="navbar-brand" href="/">
                     <!-- <img src="{{ asset ('content/assets/img/brand/white.png') }}" /> -->
                     <img src="{{ asset ('content/assets/img/brand/manajemen.png') }}" />
-                    APP MANAJEMEN
+                    COFFEE BLEND
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -94,7 +94,7 @@
             </div>
         </nav>
         <!-- Header -->
-        <div class="header bg-gradient-primary py-7 py-lg-8">
+        <div class="header bg-coklat2 py-7 py-lg-8">
             <div class="container">
                 <div class="header-body text-center mb-7">
                     <div class="row justify-content-center">

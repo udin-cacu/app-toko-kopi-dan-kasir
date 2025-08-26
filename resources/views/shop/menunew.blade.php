@@ -184,11 +184,19 @@ function addToCart(id) {
 		product_id: id
 	})
 	.done(function(res) {
-		alert('Ditambahkan ke keranjang');
+		swal({
+			title: "Success",
+			text: "Products Transaksi Berhasil Tersimpan",
+			icon: "success",
+			confirmButtonText: 'OK'
+		});
+
+		setTimeout(function(){ window.location.href = '/menu2'; }, 2000);
 	})
 	.fail(function(xhr) {
 		console.error(xhr.responseText);
 		alert('Gagal menambahkan ke keranjang');
 	});
 }
+
 </script>

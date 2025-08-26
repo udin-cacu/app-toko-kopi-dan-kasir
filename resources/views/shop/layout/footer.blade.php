@@ -56,19 +56,19 @@
        <h2 class="ftco-heading-2">Have a Questions?</h2>
        <div class="block-23 mb-3">
          <ul>
-           <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-           <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-           <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-         </ul>
-       </div>
-     </div>
-   </div>
- </div>
- <div class="row">
+          <li><span class="icon icon-map-marker"></span><span class="text">Jalan Raya Cilamaya - Cikalong, Kp. Kalenraman Selatan, Desa Gempol, Kec.Banyusari, Kab.Karawang, Jawa Barat, Indonesia </span></li>
+          <li><a href="#"><span class="icon icon-phone"></span><span class="text">+62 819 1246 7545</span></a></li>
+          <li><a href="#"><span class="icon icon-envelope"></span><span class="text">syamsuudin266@gmail.com</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
   <div class="col-md-12 text-center">
 
     <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-      Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+      Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Syamsudin</a>
       <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
     </div>
   </div>
@@ -99,6 +99,7 @@
 <script src="/assets2/js/google-map.js"></script>
 <script src="/assets2/js/main.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     let current = window.location.pathname;
