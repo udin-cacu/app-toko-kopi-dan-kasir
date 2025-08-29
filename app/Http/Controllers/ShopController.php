@@ -4,6 +4,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use App\Models\{Product, Customer, Order, OrderItem, Category};
+use Midtrans\Snap;
+use Midtrans\Config;
+use App\Models\Payment;
+use Auth;
 
 class ShopController extends Controller
 {
@@ -161,5 +165,86 @@ class ShopController extends Controller
         ]);
         $order = Order::where('invoice',$invoice)->firstOrFail();
         return view('shop.successnew', compact('order'));
+    }
+
+    /*public function confirmCash(Request request $id){
+        
+        $order = Order::where('id', '=', $id)
+        ->update([
+            'status'=> "paid",
+        ]);
+
+
+
+        \App\Models\Payment::create(['order_id'=>$order->id,'method'=>$request->method,'paid'=>$request->paid,'change'=>max(0,$request->paid - $order->total)]);
+
+        return response()->json(['message'=>'Pembayaran cash berhasil!']);
+    }*/
+
+
+    public function confirmCash(Request $request, $id)
+    {
+        try {
+
+            $user = Auth::user();
+
+            $order = Order::findOrFail($id);
+        // update status order
+            $order->status = 'paid';
+            $order->user_id = $user->id;
+            $order->save();
+
+        // buat payment record
+            Payment::create([
+                'order_id' => $order->id,
+                'method'   => 'cash',
+                'paid'     => $request->input('paid', $order->total), 
+                'change'   => max(0, $request->input('paid', $order->total) - $order->total),
+            ]);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Pembayaran cash berhasil!'
+            ]);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Gagal konfirmasi pembayaran: '.$e->getMessage()
+            ], 500);
+        }
+    }
+
+
+    public function createSnapToken(Request $request)
+    {
+        $order = Order::select('orders.*', 'customers.name as customer_name', 'customers.email as customer_email')
+        ->join('customers', 'orders.customer_id', '=', 'customers.id')
+        ->where('orders.id', $request->order_id)
+        ->first();
+
+        // Konfigurasi Midtrans
+        Config::$serverKey = config('midtrans.server_key');
+        Config::$isProduction = config('midtrans.is_production');
+        Config::$isSanitized = true;
+        Config::$is3ds = true;
+
+        $params = [
+            'transaction_details' => [
+                'order_id' => 'ORDER-' . $order->id . '-' . time(),
+                'gross_amount' => $order->total, // total harga
+            ],
+            'customer_details' => [
+                'first_name' => $order->customer_name ?? 'Guest',
+                'email'      => $order->customer_email ?? 'guest@mail.com',
+            ],
+            'enabled_payments' => ["gopay", "ovo", "qris"], // <= aktifkan OVO/QRIS
+        ];
+
+        $snapToken = Snap::getSnapToken($params);
+
+        return response()->json([
+            'token' => $snapToken
+        ]);
     }
 }

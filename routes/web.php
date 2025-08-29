@@ -41,6 +41,14 @@ Route::get('/services', [ShopController::class,'services'])->name('shop.services
 /*Route::view('/about', 'shop.about')->name('about');
 Route::view('/services', 'shop.services')->name('services');*/
 
+// routes/web.php
+Route::prefix('staff/orders')->group(function(){
+    Route::post('{id}/confirm-cash', [ShopController::class,'confirmCash']);
+});
+Route::post('/payment/snap-token', [App\Http\Controllers\ShopController::class, 'createSnapToken'])
+->name('payment.snap');
+
+
 Auth::routes();
 
 Route::middleware(['auth'])->group(function(){
@@ -76,6 +84,7 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/orders/datatable',[OrderController::class,'datatable'])->name('orders.datatable');
         Route::get('/orders/{id}',[OrderController::class,'show'])->name('orders.show');
         Route::post('/orders/{id}/confirm',[OrderController::class,'confirm'])->name('orders.confirm');
+        Route::post('/pos/paymen',[OrderController::class,'paymen'])->name('pos.paymen');
 
         // Staff web orders
         Route::get('/staff/orders',[StaffOrderController::class,'index'])->name('staff.orders.index');
